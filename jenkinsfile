@@ -1,6 +1,9 @@
 pipeline {
     agent any  // 使用任何可用的代理节点
- 
+   options{
+
+    skipDefaultCheckout()
+   }
     stages {
         stage('Checkout') {  // 代码检出阶段
             steps {
