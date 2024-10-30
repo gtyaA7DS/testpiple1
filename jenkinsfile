@@ -1,0 +1,36 @@
+pipeline {
+    agent any  // 使用任何可用的代理节点
+
+    stages {
+        stage('Checkout') {  // 代码检出阶段
+            steps {
+               echo "checkout"
+            }
+        }
+        
+        stage('Build') {  // 构建阶段
+            steps {
+               
+                echo  'mvn clean install'
+            }
+        }
+        
+        stage('Test') {  // 测试阶段
+            steps {
+                // 执行单元测试
+                echo  'mvn test'
+            }
+           
+        }
+        
+        stage('Deploy') {  // 部署阶段
+            steps {
+                // 模拟部署的步骤
+                echo 'Deploying to production...'
+                // 您可以在这里添加实际的部署命令
+            }
+        }
+    }
+
+  
+}
